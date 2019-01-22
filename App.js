@@ -1,7 +1,40 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { Component } from 'react';
+import {
+  StyleSheet, Text, View, TouchableOpacity, Modal
+} from 'react-native';
+import Camera from './src/components/Camera';
 
-const App = () => <View style={styles.container} />;
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showCamera: false
+    };
+  }
+
+  showModal = () => {
+    this.setState({
+      showCamera: true
+    });
+  };
+
+  render() {
+    const { showCamera } = this.state;
+    return (
+      <View style={styles.container}>
+        <View style={styles.container}>
+          <TouchableOpacity onPress={this.showModal}>
+            <Text>Tirar Foto</Text>
+          </TouchableOpacity>
+          <Modal onRequestClose={() => {}} visible={showCamera} animationType="slide">
+            <Camera />
+          </Modal>
+        </View>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
