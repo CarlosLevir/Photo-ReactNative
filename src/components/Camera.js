@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Text
+  StyleSheet, Text, Dimensions, View
 } from 'react-native';
-import { RNCamera } from 'react-native-camera';
 
-class Camera extends Component {
+import Camera from 'react-native-camera';
+
+export default class App extends Component {
+  takePicture = () => {
+    this.camera
+      .capture()
+      .then(data => console.log(data.uri))
+      .catch(err => console.error(err));
+  };
+
   render() {
     return (
-      <View>
-        <RNCamera
-          ref={(camera) => {
-            this.camera = camera;
+      <View style={styles.container}>
+        <Camera
+          ref={(cam) => {
+            this.camera = cam;
           }}
           style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          autoFocus={RNCamera.Constants.AutoFocus.on}
-          flashMode={RNCamera.Constants.FlashMode.off}
-          permissionDialogTitle="Permission to use camera"
-          permissionDialogMessage="We need your permission to use your camera phone"
-        />
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-            <Text style={styles.buttonText}> SNAP </Text>
-          </TouchableOpacity>
-        </View>
+          aspect={Camera.constants.Aspect.fill}
+        >
+          <Text style={styles.capture} onPress={this.takePicture}>
+            CAPTURE
+          </Text>
+        </Camera>
       </View>
     );
   }
@@ -35,28 +38,27 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'black'
   },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
-  },
   buttonContainer: {
     flex: 0,
     flexDirection: 'row',
     justifyContent: 'center'
   },
+  buttonText: {
+    fontSize: 14
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width
+  },
   capture: {
     flex: 0,
     backgroundColor: '#fff',
     borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20
-  },
-  buttonText: {
-    fontSize: 14
+    color: '#000',
+    padding: 10,
+    margin: 40
   }
 });
-
-export default Camera;
