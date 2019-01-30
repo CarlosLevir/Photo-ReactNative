@@ -12,6 +12,9 @@
     "react-native": "0.57.8",
     "react-native-camera": "^1.9.1",
     "react-native-elements": "^1.0.0-beta7",
+    "react-native-linear-gradient": "^2.5.3",
+    "react-native-shimmer-placeholder": "^1.0.30",
+    "react-native-vector-icons": "^6.2.0",
     "react-navigation": "^3.0.9"
   },
   "devDependencies": {
