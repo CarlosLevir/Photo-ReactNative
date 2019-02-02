@@ -10,7 +10,7 @@ const AppRouter = createStackNavigator({
       headerStyle: {
         backgroundColor: colors.primary.dark
       },
-      headerTintColor: '#FFF'
+      headerTintColor: colors.white
     }),
   },
   SubjectDetails: {
@@ -19,7 +19,7 @@ const AppRouter = createStackNavigator({
       headerStyle: {
         backgroundColor: colors.primary.dark
       },
-      headerTintColor: '#FFF'
+      headerTintColor: colors.white
     }),
   }
 });

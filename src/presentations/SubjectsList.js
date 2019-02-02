@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import SubjectCard from './SubjectCard';
 import { colors, fonts } from '../utils/Styles';
 
@@ -24,7 +23,7 @@ class SubjectsList extends Component {
           bottomContent={<View style={styles.homeCardBottomContent} />}
           icon={(
             <Icon
-              name="donut-large"
+              name="book"
               size={45}
               color={colors.white}
               style={{ backgroundColor: 'transparent' }}
@@ -40,8 +39,8 @@ class SubjectsList extends Component {
           bottomColors={[colors.purple.dark, colors.purple.light]}
           bottomContent={<View style={styles.homeCardBottomContent} />}
           icon={(
-            <Icon2
-              name="barcode"
+            <Icon
+              name="book"
               size={45}
               color={colors.white}
               style={{ backgroundColor: 'transparent' }}
@@ -58,7 +57,7 @@ class SubjectsList extends Component {
           bottomContent={<View style={styles.homeCardBottomContent} />}
           icon={(
             <Icon
-              name="attach-money"
+              name="book"
               size={45}
               color={colors.white}
               style={{ backgroundColor: 'transparent' }}
